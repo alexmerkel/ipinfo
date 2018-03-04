@@ -124,6 +124,12 @@ def getDomainInfos(domain):
         return
 
     print("IP: "+BOLD+ip+RESET)
+    try:
+        reverse = socket.gethostbyaddr(ip)[0]
+        if reverse:
+            print("Reverse DNS: "+BOLD+reverse+RESET)
+    except (OSError, IndexError):
+        pass
     getIPInfos(ip)
 # ########################################################################### #
 
