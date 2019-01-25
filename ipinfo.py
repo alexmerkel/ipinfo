@@ -87,6 +87,8 @@ def getIPInfos(ip):
     if not infos:
         print(RED+"No information found for IP "+BOLD+ip+RESET)
         return
+    if infos.get("bogon"):
+        print(BOLD+RED+ip+RESET+RED+" is a bogon IP address"+RESET)
     if infos.get("hostname"):
         print("Hostname: "+BOLD+infos.get("hostname")+RESET)
     if infos.get("org"):
